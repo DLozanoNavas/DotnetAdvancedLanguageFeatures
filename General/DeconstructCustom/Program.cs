@@ -2,10 +2,13 @@
 // Using Deconstruction on a custom defined type
 
 // Create some classes with data
-Planet Earth = new Planet("Earth", 6371, 1, 150_980_000);
-Planet Venus = new Planet("Venus", 6052, 0, 108_930_000);
+var earth = new Planet("Earth", 6371, 1, 150_980_000);
+var venus = new Planet("Venus", 6052, 0, 108_930_000);
 
-// TODO: Use Deconstruction to get the name and moon count
+// Use Deconstruction to get the name and moon count
+var (name, moons) = earth;
+Console.WriteLine($"{name} has {moons} moons");
 
-
-// TODO: Use Deconstruction to get the name, moon count, and radius
+// Use Deconstruction to get the name, moon count, and radius
+var (name2, moons2, radius2) = venus;
+Console.WriteLine($"{name2} has {moons2} moons and a radius of {radius2} km");

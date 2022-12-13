@@ -15,12 +15,32 @@ public class Planet
         DistanceFromSunKm = distance;
     }
 
-    // TODO: Define a Deconstruct method to return the name and moon count
+    // Define a Deconstruct method to return the name and moon count
+    public void Deconstruct(out string name, out int moons) {
+        name = Name;
+        moons = MoonCount;
+    }
+    
+    // Defining a Deconstruct with the name number of parameters will cause an error
+    //public void Deconstruct(out string name, out int distance)
+    //{
+    //    name = Name;
+    //    distance = DistanceFromSunKm;
+    //}
+    
+    // Define a Deconstruct method to return the name, moon count, and radius
+    public void Deconstruct(out string name, out int moons, out int radius) {
+        name = Name;
+        moons = MoonCount;
+        radius = Radius;
+    }
 
-
-    // TODO: Define a Deconstruct method to return the name, moon count, and radius
-
-
-    // TODO: Defining a Deconstruct with the name number of parameters will cause an error
+    public void Deconstruct(out string name, out int moons, out int radius, out int distance) {
+        name = Name;
+        moons = MoonCount;
+        radius = Radius;
+        distance = DistanceFromSunKm;
+    }
+    
 
 }
