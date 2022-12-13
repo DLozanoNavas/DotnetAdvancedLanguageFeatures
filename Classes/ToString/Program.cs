@@ -6,7 +6,7 @@
 float x = 42.0f;
 Console.WriteLine($"{x}");
 
-// TODO: Implement ToString to represent a custom type
+// Implement ToString to represent a custom type
 var p = new Person { FirstName = "John", LastName = "Doe", Age = 42 };
 
 Console.WriteLine($"{p}");
@@ -15,7 +15,7 @@ public class Person {
     public string? LastName {get; set;}
     public int Age {get; set;}
 
-    // TODO: Override ToString to provide your own string representation
+    // Override ToString to provide your own string representation
     public override string ToString()
     {
         return $"{FirstName} {LastName} is {Age} years old";
