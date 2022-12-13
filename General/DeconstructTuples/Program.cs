@@ -23,7 +23,11 @@ Console.WriteLine($"{result.Item1}, {result.Item2}, {result.Item3}");
 var (high, low, close) = GetStockValues("ABCD");
 Console.WriteLine($"{high}, {low}, {close}");
 
-// You can also use explicit variable types, and the _ character can be
-// used to ignore any values that you don't plan to use
+// You can also use explicit variable types.
 (decimal high2, decimal low2, decimal close2) = GetStockValues("ABCD");
 Console.WriteLine($"{high2}, {low2}, {close2}");
+
+// The _ character can be used to ignore any values that you don't plan to use
+decimal cl;
+(_,_, cl) = GetStockValues("ABCD");
+Console.WriteLine($"Closing Value: {cl}");
