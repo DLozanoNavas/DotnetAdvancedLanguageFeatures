@@ -22,12 +22,29 @@ public class StockRecord {
         get => prices.Min();
     }
 
-    // TODO: implement Length property 
+    // implement Length property 
+    public int Length  => prices.Length;
 
+    // implement this[] to enable indexing
+    public decimal this[int index]
+    {
+        get => prices[index];
+    }
 
-    // TODO: implement this[] to enable indexing
-
-
-    // TODO: You can overload the indexer to provide another way to access
-
+    // You can overload the indexer to provide another way to access
+    public decimal this[string day]
+    {
+        get
+        {
+            return day switch
+            {
+                "Monday" => prices[0],
+                "Tuesday" => prices[1],
+                "Wednesday" => prices[2],
+                "Thursday" => prices[3],
+                "Friday" => prices[4],
+                _ => throw new ArgumentException("Invalid day")
+            };
+        }
+    }
 }
