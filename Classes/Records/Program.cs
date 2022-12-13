@@ -1,23 +1,31 @@
 ﻿// Example file for LinkedIn Learning Course Advanced C#: Language Features by Joe Marini
 // Using records 
 
-// TODO: Instantiate some records
+// Instantiate some records
+var dt1 = new DayTemperature(29.6m, 20.2m);
+var dt2 = new DayTemperature(30m, 18.2m);
+var dt3 = new DayTemperature(30m, 18.2m);
 
+// Records get built-in formatting for output
+Console.WriteLine(dt1);
 
-// TODO: Records get built-in formatting for output
+// Records have built-in value equality testing
+Console.WriteLine($"{dt1 == dt2}");
+Console.WriteLine($"{dt2 == dt3}");
 
+// Like with classes, you can add other methods and properties
+Console.WriteLine($"{dt1.Average}");
 
-// TODO: Records have built-in value equality testing
-
-
-// TODO: Like with classes, you can add other methods and properties
-
-
-// TODO: Records are immutable by default - you can make them mutable but they are 
+// Records are immutable by default - you can make them mutable but they are 
 // really intended for immutable data types
-// temp1.High = 32.0m;
+//dt1.High = 32.0m;
 
-// TODO: We can use the "with" statment for non-destructive mutation
+// We can use the "with" statment for non-destructive mutation
+var dt4 = dt1 with { High = 32.0m };
+Console.WriteLine(dt4);
 
-
-// TODO: Records can be defined very simply
+// Records can be defined very simply
+public record DayTemperature(decimal High, decimal Low)
+{
+    public decimal Average => (High + Low) / 2;
+}
