@@ -16,8 +16,5 @@ public class Person {
     public int Age {get; set;}
 
     // Override ToString to provide your own string representation
-    public override string ToString()
-    {
-        return $"{FirstName} {LastName} is {Age} years old";
-    }
+    public override string ToString() => $"{FirstName} {LastName} is {Age} years old";
 }
