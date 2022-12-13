@@ -11,7 +11,7 @@ public class CommisionCalculator
             // A Stock trade of 0 shares should be caught and flagged as invalid
             ( <= 0, _) => throw new ArgumentException("Invalid trade: 0 shares"),
             // A Stock trade that is less than $5,000 is a 0.1% commission
-            StockTrade and var (_, price, _) when price < 5_000 => "0.1%",
+            StockTrade and (_, < 5_000, _) => "0.1%",
             // A Stock trade that is more or equal to $5,000 is a 0.05% commission
             StockTrade and var (_, price, _) when price >= 5_000 => "0.5%",
             // Any stock trade of 1,000 shares or more is a flat fee of $10
