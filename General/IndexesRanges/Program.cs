@@ -4,17 +4,23 @@
 // Define a sample array 
 string[] words = new string[]
 {
-    "The","quick","brown","fox","jumps",
-    "over","the","lazy","dog"       
+    "Zero","One","Two","Three","Four", "Five","Six","Seven","Eight","Nine"
 };
 
 // The index operator provides access to array elements
 Console.WriteLine(words[1]);
 
-// TODO: The index-from-end operator indexes from the end of a sequence
+// The index-from-end operator indexes from the end of a sequence
 // (Note that the end is not zero-based, ^1 is the last item)
+Console.WriteLine(words[^1]); 
 
-// TODO: The range operator (..) defines a range
+// The range operator (..) defines a range
+string[] range = words[2..5];
+Console.WriteLine(string.Join(",", range));
 
+// Indexes and ranges can be variables too
+Index idx = ^4;
+Console.WriteLine(words[idx]);
 
-// TODO: Indexes and ranges can be variables too
+Range rng = 1..^4;
+Console.WriteLine(string.Join(",", words[rng]));
