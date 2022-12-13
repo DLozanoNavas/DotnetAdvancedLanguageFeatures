@@ -22,6 +22,7 @@ public class Planet
     }
     
     // Defining a Deconstruct with the name number of parameters will cause an error
+    // You cant have two Deconstruct methods with the same method signature. :D
     //public void Deconstruct(out string name, out int distance)
     //{
     //    name = Name;
