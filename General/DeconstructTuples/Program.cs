@@ -2,17 +2,15 @@
 
 // Tuples provide an easy, lightweight way of returning multiple values
 // from a single function call without defining a complex structure
-(decimal, decimal, decimal) GetStockValues(string ticker) {
-    // Given a ticker symbol, return HIGH, LOW, and CLOSE values
-    if (ticker == "ABCD") {
-        return (22.0m, 19.0m, 20.5m);
-    }
-    else if (ticker == "WXYZ") {
-        return (50.0m, 47.0m, 49.25m);
-    }
-    else {
-        return (0,0,0);
-    }
+(decimal, decimal, decimal) GetStockValues(string ticker)
+{
+    return ticker switch
+    {
+        // Given a ticker symbol, return HIGH, LOW, and CLOSE values
+        "ABCD" => (22.0m, 19.0m, 20.5m),
+        "WXYZ" => (50.0m, 47.0m, 49.25m),
+        _ => (0, 0, 0)
+    };
 }
 
 // Working directly with a tuple can be somewhat tedious, having
@@ -20,9 +18,12 @@
 var result = GetStockValues("ABCD");
 Console.WriteLine($"{result.Item1}, {result.Item2}, {result.Item3}");
 
-// TODO: An easier way can be accomplished using named values and 
+// An easier way can be accomplished using named values and 
 // deconstructing the tuple into variables
+var (high, low, close) = GetStockValues("ABCD");
+Console.WriteLine($"{high}, {low}, {close}");
 
-
-// TODO: You can also use explicit variable types, and the _ character can be
+// You can also use explicit variable types, and the _ character can be
 // used to ignore any values that you don't plan to use
+(decimal high2, decimal low2, decimal close2) = GetStockValues("ABCD");
+Console.WriteLine($"{high2}, {low2}, {close2}");
